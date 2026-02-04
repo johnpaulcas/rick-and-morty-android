@@ -9,6 +9,8 @@ activityCompose = "1.12.2"
 kotlin = "2.0.21"
 composeBom = "2024.09.00"
 coil = "3.3.0"
+koin-bom = "4.1.1"
+ktor-bom = "3.4.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -32,9 +34,28 @@ androidx-compose-material3 = { group = "androidx.compose.material3", name = "mat
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-networkOkHttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
+# koin
+koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koin-bom" }
+koin-core = { group = "io.insert-koin:koin-core", name = "koin-core" }
+koin-android = { group = "io.insert-koin", name = "koin-android" }
+koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose" }
+koin-compose = { group = "io.insert-koin", name = "koin-compose" }
+koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel" }
+koin-ktor = { group = "io.insert-koin", name = "koin-ktor" }
+koin-test = { group = "io.insert-koin", name = "koin-test"}
+
+# ktor
+ktor-bom = { group = "io.ktor", name = "ktor-bom", version.ref = "ktor-bom"}
+ktor-core = { group = "io.ktor", name = "ktor-client-core" }
+ktor-cio = { group = "io.ktor", name = "ktor-client-cio" }
+ktor-logging = { group = "io.ktor", name = "ktor-client-logging" }
+ktor-serialization = { group = "io.ktor", name = "ktor-serialization-kotlinx-json" }
+ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 
 [bundles]
 coil = ["coil-compose", "coil-networkOkHttp"]
