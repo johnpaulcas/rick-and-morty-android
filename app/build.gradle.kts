@@ -22,7 +22,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_API", "\"https://rickandmortyapi.com/api/\"")
+            buildConfigField("String", "BASE_API", "\"https://rickandmortyapi.com/api\"")
         }
         release {
             isMinifyEnabled = false
@@ -34,10 +34,12 @@ android {
         }
     }
     compileOptions {
+        isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
     buildFeatures {
+        buildConfig = true
         compose = true
     }
 }
@@ -51,6 +53,8 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     // coil
     implementation(libs.bundles.coil)
