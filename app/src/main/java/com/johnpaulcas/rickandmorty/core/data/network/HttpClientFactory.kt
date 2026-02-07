@@ -17,6 +17,11 @@ import kotlinx.serialization.json.Json
 object HttpClientFactory {
     fun create(engine: HttpClientEngine): HttpClient {
         return HttpClient(engine) {
+            defaultRequest {
+                url(ApiConfig.BASE_URL)
+                contentType(ContentType.Application.Json)
+            }
+
             install(Logging) {
                 level = LogLevel.ALL
                 logger = Logger.ANDROID
@@ -28,11 +33,6 @@ object HttpClientFactory {
                         ignoreUnknownKeys = true
                     }
                 )
-            }
-            defaultRequest {
-                contentType(ContentType.Application.Json)
-                // header sample
-//                header("Authorization", "Bearer ${}")
             }
 
         }
