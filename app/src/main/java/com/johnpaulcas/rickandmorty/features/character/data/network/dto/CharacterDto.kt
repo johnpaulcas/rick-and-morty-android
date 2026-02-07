@@ -1,5 +1,8 @@
 package com.johnpaulcas.rickandmorty.features.character.data.network.dto
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class CharacterDto(
     val created: String,
     val episode: List<String>,
