@@ -2,6 +2,7 @@ package com.johnpaulcas.rickandmorty.features.character.presentation.list.compon
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -41,7 +42,7 @@ import coil3.compose.AsyncImagePreviewHandler
 import coil3.compose.LocalAsyncImagePreviewHandler
 import com.johnpaulcas.rickandmorty.R
 import com.johnpaulcas.rickandmorty.core.presentation.ui.preview.PreviewAsyncImage
-import com.johnpaulcas.rickandmorty.features.character.domain.Gender
+import com.johnpaulcas.rickandmorty.features.character.domain.model.character.Gender
 import com.johnpaulcas.rickandmorty.features.character.presentation.model.CharacterUi
 import com.johnpaulcas.rickandmorty.features.character.presentation.model.DisplayableCharacterStatus
 import com.johnpaulcas.rickandmorty.features.character.presentation.model.DisplayableDate
@@ -51,14 +52,17 @@ import java.time.Instant
 @Composable
 fun CharacterItem(
     characterUi: CharacterUi,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: (Int) -> Unit
 ) {
     val radius = 16.dp
     Surface(
         color = MaterialTheme.colorScheme.surface,
         shape = RoundedCornerShape(radius),
         tonalElevation = 1.dp,
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
+            .fillMaxWidth()
+            .clickable { onClick(characterUi.id) }
     ) {
         Row(
             modifier = Modifier
@@ -145,6 +149,7 @@ fun CharacterItemPreview() {
                 ) {
                     CharacterItem(
                         characterUi = previewCharacterUi,
+                        onClick = {}
                     )
                 }
 
