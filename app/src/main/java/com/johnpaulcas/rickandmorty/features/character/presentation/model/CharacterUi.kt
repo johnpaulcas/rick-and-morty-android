@@ -1,9 +1,9 @@
 package com.johnpaulcas.rickandmorty.features.character.presentation.model
 
 import androidx.compose.ui.graphics.Color
-import com.johnpaulcas.rickandmorty.features.character.domain.Character
-import com.johnpaulcas.rickandmorty.features.character.domain.CharacterStatus
-import com.johnpaulcas.rickandmorty.features.character.domain.Gender
+import com.johnpaulcas.rickandmorty.features.character.domain.model.character.Character
+import com.johnpaulcas.rickandmorty.features.character.domain.model.character.CharacterStatus
+import com.johnpaulcas.rickandmorty.features.character.domain.model.character.Gender
 import com.johnpaulcas.rickandmorty.features.character.presentation.model.CharacterUi.Location
 import com.johnpaulcas.rickandmorty.features.character.presentation.model.CharacterUi.Origin
 import java.time.Instant
