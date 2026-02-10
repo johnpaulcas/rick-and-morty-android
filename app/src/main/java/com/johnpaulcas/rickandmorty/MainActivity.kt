@@ -4,14 +4,20 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.johnpaulcas.rickandmorty.features.character.presentation.list.CharacterListRoute
 import com.johnpaulcas.rickandmorty.ui.theme.RickAndMortyTheme
+
+object Routes {
+    const val CHARACTER_LIST = "character_list"
+    const val CHARACTER_DETAIL = "character_detail/{id}"
+
+    fun characterDetail(id: String) = "character_detail/$id"
+}
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,25 +25,27 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             RickAndMortyTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    App(modifier = Modifier.padding(innerPadding))
-                }
+                AppNav()
             }
         }
     }
 }
 
-@Composable
-fun App(modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello from Rick and Morty"
-    )
-}
 
 @Composable
-@Preview
-fun AppPreview() {
-    RickAndMortyTheme {
-        App()
+fun AppNav() {
+    val navController = rememberNavController()
+
+    NavHost(
+        navController = navController,
+        startDestination = Routes.CHARACTER_LIST
+    ) {
+        composable(Routes.CHARACTER_LIST) {
+            CharacterListRoute(
+                onClick = {
+
+                }
+            )
+        }
     }
 }
