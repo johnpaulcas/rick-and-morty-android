@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
@@ -17,17 +18,22 @@ import com.johnpaulcas.rickandmorty.ui.theme.RickAndMortyTheme
 @Composable
 fun CharacterList(
     characters: List<CharacterUi>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onClick: (Int) -> Unit
 ) {
     LazyColumn(
         modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(12.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         items(characters) { characterUi ->
             CharacterItem(
-                characterUi = characterUi
+                characterUi = characterUi,
+                onClick = onClick
             )
+
+            HorizontalDivider()
         }
+
     }
 }
 
@@ -38,7 +44,8 @@ fun CharacterListPreview() {
         RickAndMortyTheme {
             CharacterList(
                 characters = previewCharacters,
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier.padding(8.dp),
+                onClick = {}
             )
 
         }
