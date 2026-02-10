@@ -1,4 +1,4 @@
-package com.johnpaulcas.rickandmorty.features.character.data.network.dto
+package com.johnpaulcas.rickandmorty.features.character.data.datasource.remote.dto
 
 import kotlinx.serialization.Serializable
 
