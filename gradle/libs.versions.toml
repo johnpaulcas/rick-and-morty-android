@@ -5,13 +5,14 @@ junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.10.0"
-activityCompose = "1.12.2"
-kotlin = "2.0.21"
-composeBom = "2024.09.00"
+activityCompose = "1.12.3"
+kotlin = "2.3.10"
+composeBom = "2026.01.01"
+navVersion = "2.9.7"
 coil = "3.3.0"
-koin-bom = "4.1.1"
-ktor-bom = "3.4.0"
-desugar-jdk-libs = "2.1.2"
+koinBom = "4.1.1"
+ktorBom = "3.4.0"
+desugarJdkLibs = "2.1.5"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -19,6 +20,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-nav-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navVersion" }
 
 # compose
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
@@ -30,14 +32,15 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
-desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugar-jdk-libs" }
+desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugarJdkLibs" }
+
 
 # coil
 coil-compose = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
 coil-networkOkHttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
 
 # koin
-koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koin-bom" }
+koin-bom = { group = "io.insert-koin", name = "koin-bom", version.ref = "koinBom" }
 koin-core = { group = "io.insert-koin", name = "koin-core" }
 koin-android = { group = "io.insert-koin", name = "koin-android" }
 koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose" }
@@ -47,7 +50,7 @@ koin-ktor = { group = "io.insert-koin", name = "koin-ktor" }
 koin-test = { group = "io.insert-koin", name = "koin-test"}
 
 # ktor
-ktor-bom = { group = "io.ktor", name = "ktor-bom", version.ref = "ktor-bom"}
+ktor-bom = { group = "io.ktor", name = "ktor-bom", version.ref = "ktorBom"}
 ktor-core = { group = "io.ktor", name = "ktor-client-core" }
 ktor-cio = { group = "io.ktor", name = "ktor-client-cio" }
 ktor-logging = { group = "io.ktor", name = "ktor-client-logging" }
